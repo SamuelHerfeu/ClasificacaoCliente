@@ -1,27 +1,26 @@
 // - new Scanner(System.in): cria um leitor de Entradas, com métodos úteis com prefixo "next";
 // - System.out.println:.imprime um texto de Saída (Output) e pulando uma linha.  
+
 import java.util.Scanner;
 
-public class Main {
-
+public class ClassificacaoCliente {
     public static void main(String[] args) {
-        
+        // Cria um objeto Scanner para leitura da entrada
         Scanner scanner = new Scanner(System.in);
-
-        // Lê o saldo inicial
-        double saldoInicial = scanner.nextDouble();
         
-        // Lê as três transações em uma única linha
-        double transacao1 = scanner.nextDouble();
-        double transacao2 = scanner.nextDouble();
-        double transacao3 = scanner.nextDouble();
+        // Lê o saldo do cliente
+        double saldo = scanner.nextDouble();
         
-        // Calcula o saldo final
-        double saldoFinal = saldoInicial + transacao1 + transacao2 + transacao3;
+        // Classifica o cliente com base no saldo
+        if (saldo < 0) {
+            System.out.println("Negativado");
+        } else if (saldo >= 0 && saldo <= 500) {
+            System.out.println("Baixo");
+        } else {
+            System.out.println("Confortavel");
+        }
         
-        // Imprime o saldo final com duas casas decimais
-        System.out.printf("%.2f%n", saldoFinal);
-        
+        // Fecha o scanner
         scanner.close();
     }
 }
